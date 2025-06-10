@@ -118,7 +118,7 @@ const handleNavigate = () => {
 
 <style scoped>
 .product-main {
-    padding: 40px;
+    padding: 40px 0;
 }
 
 .product-main-image {
@@ -165,10 +165,6 @@ const handleNavigate = () => {
 .fine-print {
     font-size: 12px;
     color: #aaa;
-}
-
-.related-section {
-    padding: 0 40px 40px;
 }
 
 .related-title {
