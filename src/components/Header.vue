@@ -21,7 +21,7 @@ const emitSearch = () => {
 </script>
 
 <template>
-  <header class="header  px-5">
+  <header class="header">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -97,6 +97,7 @@ const emitSearch = () => {
   padding: 4px 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 100%;
 }
 
 .cart {
@@ -111,5 +112,63 @@ const emitSearch = () => {
   border: none;
   border-radius: 4px;
   color: #677637;
+}
+
+@media screen and (max-width: 568px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-menu {
+    justify-content: space-between;
+  }
+  
+  .logo-section {
+    margin-bottom: 16px;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .project-name {
+    margin-left: 0;
+    margin-top: 0;
+  }
+  .search-bar {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .cart {
+    margin-bottom: 8px;
+  }
+  .login-button {
+    width: 100%;
+    text-align: center;
+  }
+  .logo {
+    width: 100px;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo-section {
+    margin-bottom: 16px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .project-name {
+    margin-left: 0;
+    margin-top: 0;
+  }
+  
 }
 </style>

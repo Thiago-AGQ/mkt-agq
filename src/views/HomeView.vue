@@ -122,7 +122,7 @@ const handleSearch = (term) => {
           </section>
           <div class="row">
             <router-link v-for="product in filteredProducts" :key="product.id" :to="`/product/${product.id}`"
-              class="product-card d-block col-md-6 col-lg-4" @click="handleNavigate">
+              class="product-card d-block col-sm-6 col-lg-4" @click="handleNavigate">
               <img :src="product.image" />
               <h4 class="product-title">{{ product.name }}</h4>
               <p class="product-description">{{ product.description }}</p>
@@ -221,5 +221,12 @@ label {
 
 .product-card:hover .buy-button {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .banner {
+    height: 200px;
+  }
+  
 }
 </style>
