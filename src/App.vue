@@ -1,10 +1,18 @@
 <script setup>
+import { ref, provide } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+
+const cart = ref([])
+const cartOpen = ref(false)
+const closeCart = () => (cartOpen.value = false)
+
+provide('cart', cart)
+provide('cartOpen', cartOpen)
+provide('closeCart', closeCart)
 </script>
 
 <template>
-  <header>
+  <!-- <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
@@ -15,7 +23,7 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
-  </header>
+  </header> -->
 
   <RouterView />
 </template>
