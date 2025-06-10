@@ -1,20 +1,29 @@
 <template>
          <footer class="footer px-5">
-            <img src="/assets/logo-agronomiq-cor-pb.png" alt="Logo" class="logo" />
-
-            <div>
-                <div class="info-footer"><i class="fa-solid fa-phone"></i> +55 (31) 98414-0614</div>
-                <div class="info-footer"><i class="fa-solid fa-envelope"></i> contato@agronomiq.com.br</div>
-            </div>
-            <div>
-              <div class="info-footer local"><i class="fa-solid fa-location-dot"></i> Contagem - MG</div>
-                <div class="info-footer local"><i class="fa-solid fa-location-dot"></i> São Paulo - SP</div>
-            </div>
-            <div class="social-medias">
-                <a href="#" class="social-media"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#" class="social-media"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="social-media"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="social-media"><i class="fa-brands fa-linkedin-in"></i></a>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-3"><img src="/assets/logo-agronomiq-cor-pb.png" alt="Logo" class="logo" /></div>
+                <div class="col-lg-3">
+                  <div>
+                      <div class="info-footer"><i class="fa-solid fa-phone"></i> +55 (31) 98414-0614</div>
+                      <div class="info-footer"><i class="fa-solid fa-envelope"></i> contato@agronomiq.com.br</div>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div>
+                    <div class="info-footer local"><i class="fa-solid fa-location-dot"></i> Contagem - MG</div>
+                      <div class="info-footer local"><i class="fa-solid fa-location-dot"></i> São Paulo - SP</div>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="social-medias">
+                      <a href="#" class="social-media"><i class="fa-brands fa-x-twitter"></i></a>
+                      <a href="#" class="social-media"><i class="fa-brands fa-instagram"></i></a>
+                      <a href="#" class="social-media"><i class="fa-brands fa-facebook-f"></i></a>
+                      <a href="#" class="social-media"><i class="fa-brands fa-linkedin-in"></i></a>
+                  </div>
+                </div>
+              </div>
             </div>
         </footer>
 </template>
@@ -24,8 +33,6 @@
   margin-top: 32px;
   padding: 24px;
   font-size: 14px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
 }
 
 .footer img.logo {
@@ -77,5 +84,11 @@
   border-radius: 50%;
   background-color: #373737;
   color: white;
+}
+
+@media (max-width: 991px) {
+  .social-medias {
+    justify-content: start;
+  }
 }
 </style>

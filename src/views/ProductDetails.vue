@@ -87,15 +87,17 @@ const handleNavigate = () => {
         <CartSidebar />
         <main class="main">
             <div class="container">
-                <section class="product-main">
-                    <img :src="product.image" alt="Produto" class="product-main-image" />
-                    <div class="product-info">
-                        <h1 class="product-name">{{ product.name }}</h1>
-                        <h2 class="product-subheading">{{ product.subheading }}</h2>
-                        <p class="product-price">{{ `$ ${product.price.toFixed(2)}` }}</p>
-                        <p class="product-description">{{ product.description }}</p>
-                        <button class="add-to-cart" @click="addToCart(product)">Add to cart</button>
-                        <p class="fine-print">Text box for additional details or fine print</p>
+                <section class="product-main row">
+                    <div class="col-md-6"><img :src="product.image" alt="Produto" class="product-main-image" /></div>
+                    <div class="col-md-6">
+                        <div class="product-info">
+                            <h1 class="product-name">{{ product.name }}</h1>
+                            <h2 class="product-subheading">{{ product.subheading }}</h2>
+                            <p class="product-price">{{ `$ ${product.price.toFixed(2)}` }}</p>
+                            <p class="product-description">{{ product.description }}</p>
+                            <button class="add-to-cart" @click="addToCart(product)">Add to cart</button>
+                            <p class="fine-print">Text box for additional details or fine print</p>
+                        </div>
                     </div>
                 </section>
                 <section class="related-section row">
@@ -116,9 +118,6 @@ const handleNavigate = () => {
 
 <style scoped>
 .product-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
     padding: 40px;
 }
 
@@ -224,19 +223,5 @@ const handleNavigate = () => {
 
 .product-card:hover .buy-button {
     text-decoration: underline;
-}
-
-.footer {
-    background: #f5f5f5;
-    margin-top: 32px;
-    padding: 24px;
-    font-size: 14px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.footer-topic {
-    font-weight: 600;
-    margin-bottom: 4px;
 }
 </style>
