@@ -79,7 +79,7 @@ const handleNavigate = () => {
   <div class="container">
     <main class="main">
       <div class="poster mb-4">
-        <img src="/public/assets/agronomia.jpg" alt="Banner" class="banner" />
+        <img src="/assets/agronomia.jpg" alt="Banner" class="banner" />
       </div>
 
       <div class="row">
