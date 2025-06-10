@@ -58,6 +58,7 @@ const products = [
 
 let login = ref(true);
 const selectedIds = ref([])
+const searchTerm = ref('')
 
 const cartOpen = inject('cartOpen')
 const cart = inject('cart')
@@ -74,14 +75,27 @@ const handleNavigate = () => {
 }
 
 const filteredProducts = computed(() => {
-  if (selectedIds.value.length === 0) return products
-  return products.filter(p => selectedIds.value.includes(p.id))
+  const term = searchTerm.value.toLowerCase().trim()
+
+  return products.filter((p) => {
+    const matchesSearch =
+      p.name.toLowerCase().includes(term) ||
+      p.description.toLowerCase().includes(term)
+
+    const matchesCheckbox =
+      selectedIds.value.length === 0 || selectedIds.value.includes(p.id)
+
+    return matchesSearch && matchesCheckbox
+  })
 })
 
+const handleSearch = (term) => {
+  searchTerm.value = term
+}
 </script>
 
 <template>
-  <Header />
+  <Header @search="handleSearch"/>
   <CartSidebar />
   <div class="container">
     <main class="main">

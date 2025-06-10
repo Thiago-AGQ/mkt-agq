@@ -1,4 +1,4 @@
-<script setup> 
+<script setup>
 import { ref, inject } from 'vue';
 import CartSidebar from '../components/CartSidebar.vue';
 
@@ -8,34 +8,43 @@ const cartOpen = inject('cartOpen')
 cartOpen.value = false
 
 function toggleCart() {
-    cartOpen.value = !cartOpen.value;
+  cartOpen.value = !cartOpen.value;
+}
+
+const searchText = ref('')
+const emit = defineEmits(['search'])
+
+const emitSearch = () => {
+  emit('search', searchText.value)
 }
 
 </script>
 
 <template>
-    <header class="header  px-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="header-menu d-flex align-items-center">
-                  <a href="/" class="logo-section">
-                      <img src="/assets/logo-agronomiq-cor-pb.png" alt="Logo" class="logo" />
-                  </a>
-                  <a href="https://www.agronomiq.com.br/landing" class="project-name">AgronomiQ Website</a>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="actions">
-                  <input type="text" placeholder="Search Bar" class="search-bar" />
-                  <span class="cart" ><i class="fa-solid fa-cart-plus" @click="toggleCart"></i><span v-if="cart.length" class="cart-badge">{{ cart.length }}</span></span>
-                  <span v-if="login">Olá, Antonio <i class="fa-solid fa-arrow-down"></i></span>
-                  <button v-else class="login-button">Login</button>
-              </div>
-            </div>
+  <header class="header  px-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="header-menu d-flex align-items-center">
+            <a href="/" class="logo-section">
+              <img src="/assets/logo-agronomiq-cor-pb.png" alt="Logo" class="logo" />
+            </a>
+            <a href="https://www.agronomiq.com.br/landing" class="project-name">AgronomiQ Website</a>
           </div>
         </div>
-    </header>
+        <div class="col-md-6">
+          <div class="actions">
+            <input type="text" v-model="searchText" placeholder="Buscar produtos..." @input="emitSearch"
+              class="search-bar" />
+            <span class="cart"><i class="fa-solid fa-cart-plus" @click="toggleCart"></i><span v-if="cart.length"
+                class="cart-badge">{{ cart.length }}</span></span>
+            <span v-if="login">Olá, Antonio <i class="fa-solid fa-arrow-down"></i></span>
+            <button v-else class="login-button">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 </template>
 
 <style scoped>
