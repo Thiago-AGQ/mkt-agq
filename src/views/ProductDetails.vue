@@ -2,6 +2,7 @@
 import { useRoute } from 'vue-router'
 import { computed, ref, inject, watch } from 'vue'
 import Header from '../components/Header.vue';
+import Footer from '../components/Footer.vue';
 import CartSidebar from '../components/CartSidebar.vue';
 
 const cart = inject('cart')
@@ -20,49 +21,49 @@ const products = [
         name: 'Propriedades rurais (SICAR/SNCI/SIGEF)',
         description: 'Descrição do Produto 1',
         price: 55.00,
-        image: '/assets/images/propriedades_rurais.jpg'
+        image: '../assets/propriedades_rurais.jpg'
     },
     {
         id: 2,
         name: 'Pedologia (Tipos de solo)',
         description: 'Descrição do Produto 2',
         price: 65.00,
-        image: '/assets/images/pedologia.jpg'
+        image: '../assets/pedologia.jpg'
     },
     {
         id: 3,
         name: 'Áreas de Reserva Legal',
         description: 'Descrição do Produto 3',
         price: 75.00,
-        image: '/assets/images/reserva_legal.png'
+        image: '../assets/reserva_legal.png'
     },
     {
         id: 4,
         name: 'Áreas de Preservação Permanente',
         description: 'Descrição do Produto 4',
         price: 85.00,
-        image: '/assets/images/preservacao_permanente.jpg'
+        image: '../assets/preservacao_permanente.jpg'
     },
     {
         id: 5,
         name: 'Uso do solo',
         description: 'Descrição do Produto 5',
         price: 95.00,
-        image: '/assets/images/uso_solo.jpg'
+        image: '../assets/uso_solo.jpg'
     },
     {
         id: 6,
         name: 'Zoneamento Agroambiental Sucroalcooleiro',
         description: 'Descrição do Produto 6',
         price: 105.00,
-        image: '/assets/images/zoneamento.png'
+        image: '../assets/zoneamento.png'
     },
     {
         id: 7,
         name: 'Dados meteorológicos',
         description: 'Descrição do Produto 7',
         price: 115.00,
-        image: '/assets/images/dados_meteorologicos.jpg'
+        image: '../assets/dados_meteorologicos.jpg'
     },
 ]
 
@@ -109,30 +110,8 @@ const handleNavigate = () => {
                 </section>
             </div>
         </main>
-
-        <footer class="footer px-5">
-            <img src="//assets/images/logo-agronomiq-cor-pb.png" alt="Logo" class="logo" />
-
-            <div>
-                <div class="footer-topic">Topic</div>
-                <div>Page</div>
-                <div>Page</div>
-                <div>Page</div>
-            </div>
-            <div>
-                <div class="footer-topic">Topic</div>
-                <div>Page</div>
-                <div>Page</div>
-                <div>Page</div>
-            </div>
-            <div>
-                <div class="footer-topic">Topic</div>
-                <div>Page</div>
-                <div>Page</div>
-                <div>Page</div>
-            </div>
-        </footer>
     </div>
+    <Footer />
 </template>
 
 <style scoped>
