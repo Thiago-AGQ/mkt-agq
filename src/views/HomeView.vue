@@ -1,5 +1,5 @@
 <script setup>
-import { ref, inject } from 'vue';
+import { ref, inject, computed } from 'vue';
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
 import CartSidebar from '../components/CartSidebar.vue';
@@ -57,6 +57,7 @@ const products = [
 ]
 
 let login = ref(true);
+const selectedIds = ref([])
 
 const cartOpen = inject('cartOpen')
 const cart = inject('cart')
@@ -71,6 +72,12 @@ const handleNavigate = () => {
   cartOpen.value = false
   window.scrollTo(0, 0)
 }
+
+const filteredProducts = computed(() => {
+  if (selectedIds.value.length === 0) return products
+  return products.filter(p => selectedIds.value.includes(p.id))
+})
+
 </script>
 
 <template>
@@ -88,7 +95,7 @@ const handleNavigate = () => {
             <h2 class="title">Produtos</h2>
             <ul class="filter-list">
               <li v-for="product in products" :key="product.id" class="d-flex align-items-center">
-                <input type="checkbox" :id="product.name" />
+                <input type="checkbox" :id="product.name" :value="product.id" v-model="selectedIds" />
                 <label :for="product.name">{{ product.name }}</label>
               </li>
             </ul>
@@ -97,21 +104,11 @@ const handleNavigate = () => {
 
         <div class="col-md-8">
           <section class="product-section mb-3">
-            <p class="product-count">Filtro: 5 produtos encontrados</p>
+            <p class="product-count">Filtro: {{ filteredProducts.length }} produto{{ filteredProducts.length !== 1 ? 's' : '' }} encontrado{{ filteredProducts.length !== 1 ? 's' : '' }}</p>
           </section>
-          <!-- <div class="product-grid">
-            <div v-for="product in products" :key="product.id" class="product-card">
-              <img :src="product.image" alt="Produto" class="product-image" />
-              <h4 class="product-title">{{ product.name }}</h4>
-              <p class="product-description">{{ product.description }}</p>
-              <p class="product-price">Price: ${{ product.price.toFixed(2) }}</p>
-              <button class="buy-button">BUY</button>
-            </div>
-          </div> -->
-
           <div class="row">
-            <router-link v-for="product in products" :key="product.id" :to="`/product/${product.id}`"
-              class="product-card d-block col-md-4" @click="handleNavigate">
+            <router-link v-for="product in filteredProducts" :key="product.id" :to="`/product/${product.id}`"
+              class="product-card d-block col-md-6 col-lg-4" @click="handleNavigate">
               <img :src="product.image" />
               <h4 class="product-title">{{ product.name }}</h4>
               <p class="product-description">{{ product.description }}</p>
@@ -198,10 +195,12 @@ label {
 
 .buy-button {
   margin-top: 8px;
-  color: #1d4ed8;
-  background: none;
+  color: white;
+  background: #677637;
   border: none;
   cursor: pointer;
+  border-radius: 8px;
+  padding: 8px 16px;
 }
 
 .product-card:hover .buy-button {

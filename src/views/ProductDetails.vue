@@ -213,11 +213,13 @@ const handleNavigate = () => {
 }
 
 .buy-button {
-    margin-top: 8px;
-    color: #1d4ed8;
-    background: none;
-    border: none;
-    cursor: pointer;
+  margin-top: 8px;
+  color: white;
+  background: #677637;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 8px 16px;
 }
 
 .product-card:hover .buy-button {
