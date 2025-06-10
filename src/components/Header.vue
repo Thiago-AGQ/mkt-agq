@@ -57,6 +57,15 @@ function toggleCart() {
 
 .project-name {
   font-weight: 500;
+  color: #677637;
+  text-decoration: none;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .actions {
@@ -73,6 +82,7 @@ function toggleCart() {
 
 .cart {
   cursor: pointer;
+  color: #677637;
 }
 
 .login-button {
@@ -81,5 +91,6 @@ function toggleCart() {
   padding: 4px 16px;
   border: none;
   border-radius: 4px;
+  color: #677637;
 }
 </style>
