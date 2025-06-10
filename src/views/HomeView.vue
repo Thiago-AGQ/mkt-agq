@@ -126,7 +126,7 @@ const handleSearch = (term) => {
               <img :src="product.image" />
               <h4 class="product-title">{{ product.name }}</h4>
               <p class="product-description">{{ product.description }}</p>
-              <p class="product-price">Price: ${{ product.price.toFixed(2) }}</p>
+              <p class="product-price">Price: R${{ product.price.toFixed(2) }}</p>
               <button class="buy-button" @click.stop.prevent="addToCart(product)">BUY</button>
             </router-link>
           </div>
