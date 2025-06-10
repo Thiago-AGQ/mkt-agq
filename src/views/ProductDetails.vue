@@ -187,6 +187,8 @@ const handleNavigate = () => {
     padding: 16px;
     border-radius: 8px;
     cursor: pointer;
+    color: black;
+    text-decoration: none;
 }
 
 .product-card img {
