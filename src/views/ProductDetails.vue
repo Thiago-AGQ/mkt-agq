@@ -93,21 +93,21 @@ const handleNavigate = () => {
                         <div class="product-info">
                             <h1 class="product-name">{{ product.name }}</h1>
                             <h2 class="product-subheading">{{ product.subheading }}</h2>
-                            <p class="product-price">{{ `$ ${product.price.toFixed(2)}` }}</p>
+                            <p class="product-price">{{ `R$ ${product.price.toFixed(2).replace('.', ',').replace('00','99')}` }}</p>
                             <p class="product-description">{{ product.description }}</p>
-                            <button class="add-to-cart" @click="addToCart(product)">Add to cart</button>
-                            <p class="fine-print">Text box for additional details or fine print</p>
+                            <button class="add-to-cart" @click="addToCart(product)">Adicionar ao carrinho</button>
+                            <p class="fine-print">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad, voluptatibus.</p>
                         </div>
                     </div>
                 </section>
                 <section class="related-section row">
-                    <h2 class="related-title">Related products</h2>
+                    <h2 class="related-title">Produtos relacionados</h2>
                     <router-link v-for="product in products" :key="product.id" :to="`/product/${product.id}`"
                         @click="handleNavigate" class="product-card d-block col-md-3">
                         <img :src="product.image" />
                         <h4 class="product-title">{{ product.name }}</h4>
                         <p class="product-description">{{ product.description }}</p>
-                        <button class="buy-button" @click.stop.prevent="addToCart(product)">BUY</button>
+                        <button class="buy-button" @click.stop.prevent="addToCart(product)"><i class="fa-solid fa-cart-plus"></i>Comprar</button>
                     </router-link>
                 </section>
             </div>

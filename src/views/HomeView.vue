@@ -126,8 +126,8 @@ const handleSearch = (term) => {
               <img :src="product.image" />
               <h4 class="product-title">{{ product.name }}</h4>
               <p class="product-description">{{ product.description }}</p>
-              <p class="product-price">Price: R${{ product.price.toFixed(2) }}</p>
-              <button class="buy-button" @click.stop.prevent="addToCart(product)">BUY</button>
+              <p class="product-price">Valor: R${{ product.price.toFixed(2).replace('.', ',').replace('00','99') }}</p>
+              <button class="buy-button" @click.stop.prevent="addToCart(product)"><i class="fa-solid fa-cart-plus"></i> Comprar</button>
             </router-link>
           </div>
         </div>
