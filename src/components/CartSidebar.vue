@@ -1,3 +1,15 @@
+<script setup>
+import { inject } from 'vue'
+
+const cart = inject('cart')
+const isOpen = inject('cartOpen')
+const closeCart = inject('closeCart')
+
+const removeItem = (index) => {
+  cart.value.splice(index, 1)
+}
+</script>
+
 <template>
   <div v-if="isOpen" class="cart-sidebar">
     <div class="cart-header">
@@ -22,18 +34,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { inject } from 'vue'
-
-const cart = inject('cart')
-const isOpen = inject('cartOpen')
-const closeCart = inject('closeCart')
-
-const removeItem = (index) => {
-  cart.value.splice(index, 1)
-}
-</script>
 
 <style scoped>
 .cart-sidebar {
