@@ -1,5 +1,5 @@
 <template>
-         <footer class="footer px-5">
+         <footer class="footer">
             <div class="container">
               <div class="row">
                 <div class="col-lg-3"><img src="/assets/logo-agronomiq-cor-pb.png" alt="Logo" class="logo" /></div>
@@ -87,6 +87,10 @@
 }
 
 @media (max-width: 991px) {
+  .footer {
+    padding: 16px 0;
+  }
+  
   .social-medias {
     justify-content: start;
   }
