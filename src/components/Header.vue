@@ -1,6 +1,6 @@
 <script setup>
-import { ref, inject } from 'vue';
-import CartSidebar from '../components/CartSidebar.vue';
+import { ref, inject, computed } from 'vue';
+import { useRoute } from 'vue-router'
 
 let login = ref(true);
 const cart = inject('cart')
@@ -18,6 +18,10 @@ const emitSearch = () => {
   emit('search', searchText.value)
 }
 
+const route = useRoute()
+
+const isHome = computed(() => route.name === 'Home')
+
 </script>
 
 <template>
@@ -34,7 +38,7 @@ const emitSearch = () => {
         </div>
         <div class="col-md-6">
           <div class="actions">
-            <input type="text" v-model="searchText" placeholder="Buscar produtos..." @input="emitSearch"
+            <input v-if="isHome" type="text" v-model="searchText" placeholder="Buscar produtos..." @input="emitSearch"
               class="search-bar" />
             <span class="cart"><i class="fa-solid fa-cart-plus" @click="toggleCart"></i><span v-if="cart.length"
                 class="cart-badge">{{ cart.length }}</span></span>
