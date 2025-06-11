@@ -18,14 +18,14 @@ const removeItem = (index) => {
     </div>
     <div class="cart-content">
       <div v-if="cart.length === 0" class="empty">Seu carrinho está vazio.</div>
-      <ul v-else>
+      <ul v-else class="p-0">
         <li v-for="(item, index) in cart" :key="index" class="cart-item">
           <img :src="item.image" alt="Produto" class="cart-image" />
           <div class="cart-info">
             <p class="name">{{ item.name }}</p>
             <p class="price">{{ `R$ ${item.price.toFixed(2)}` }}</p>
           </div>
-          <button class="remove-button" @click="removeItem(index)">Remover</button>
+          <button class="remove-button" @click="removeItem(index)"><i class="fa-solid fa-xmark"></i></button>
         </li>
       </ul>
     </div>
@@ -84,18 +84,26 @@ const removeItem = (index) => {
 }
 .name {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 12px;
+  margin-bottom: 4px;
 }
 .price {
   font-size: 13px;
   color: #666;
+  margin: 0;
 }
 .remove-button {
   background: none;
-  border: none;
+  border: 1px solid #d00;
   color: #d00;
   font-size: 13px;
   cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .empty {
   text-align: center;
