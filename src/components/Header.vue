@@ -40,10 +40,12 @@ const isHome = computed(() => route.name === 'Home')
           <div class="actions">
             <input v-if="isHome" type="text" v-model="searchText" placeholder="Buscar produtos..." @input="emitSearch"
               class="search-bar" />
-            <span class="cart"><i class="fa-solid fa-cart-plus" @click="toggleCart"></i><span v-if="cart.length"
-                class="cart-badge">{{ cart.length }}</span></span>
-            <span v-if="login">Olá, Antonio</span>
-            <button v-else class="login-button">Login</button>
+            <div class="buttons-cart-login">
+              <span class="cart"><i class="fa-solid fa-cart-plus" @click="toggleCart"></i><span v-if="cart.length"
+                  class="cart-badge">{{ cart.length }}</span></span>
+              <span v-if="login">Olá, Antonio</span>
+              <button v-else class="login-button">Login</button>
+            </div>
           </div>
         </div>
       </div>
@@ -103,6 +105,12 @@ const isHome = computed(() => route.name === 'Home')
   border-radius: 4px;
 }
 
+.buttons-cart-login {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
 .cart {
   cursor: pointer;
   color: #677637;
@@ -129,33 +137,41 @@ const isHome = computed(() => route.name === 'Home')
   .header-menu {
     justify-content: space-between;
   }
-  
+
   .logo-section {
     margin-bottom: 16px;
   }
+
   .actions {
     flex-direction: column;
     align-items: center;
     gap: 8px;
   }
+
   .project-name {
     margin-left: 0;
     margin-top: 0;
   }
+
   .search-bar {
     width: 100%;
     margin-bottom: 8px;
   }
-  .cart {
-    margin-bottom: 8px;
+
+  .buttons-cart-login {
+    justify-content: end;
+    width: 100%;
   }
+
   .login-button {
     width: 100%;
     text-align: center;
   }
+
   .logo {
     width: 100px;
   }
+
   .header {
     flex-direction: column;
     align-items: flex-start;
@@ -175,6 +191,6 @@ const isHome = computed(() => route.name === 'Home')
     margin-left: 0;
     margin-top: 0;
   }
-  
+
 }
 </style>
