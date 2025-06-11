@@ -38,7 +38,7 @@ const emitSearch = () => {
               class="search-bar" />
             <span class="cart"><i class="fa-solid fa-cart-plus" @click="toggleCart"></i><span v-if="cart.length"
                 class="cart-badge">{{ cart.length }}</span></span>
-            <span v-if="login">Olá, Antonio <i class="fa-solid fa-arrow-down"></i></span>
+            <span v-if="login">Olá, Antonio</span>
             <button v-else class="login-button">Login</button>
           </div>
         </div>
@@ -97,12 +97,14 @@ const emitSearch = () => {
   padding: 4px 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 100%;
 }
 
 .cart {
   cursor: pointer;
   color: #677637;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-button {
